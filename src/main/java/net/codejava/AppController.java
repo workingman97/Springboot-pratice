@@ -73,7 +73,6 @@ public class AppController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	    String encodedPassword = passwordEncoder.encode(user.getPassword());
 	    user.setPassword(encodedPassword);
-	        
 	    repo.save(user);
 	    List<User> listUsers = repo.findAll();
 	    model.addAttribute("listUsers", listUsers);
