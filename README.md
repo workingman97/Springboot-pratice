@@ -58,5 +58,9 @@ Tests for create user and find user by email
 
 ![1681795532730](https://user-images.githubusercontent.com/34713501/232700357-b5b96153-6f44-4242-93a2-683b202e2b49.png)
 
-API test by Postman
+## API test by Postman
+Test for list api
+![1682453577753](https://user-images.githubusercontent.com/34713501/234392132-11f11f38-1930-43fe-b873-f9c5d1b0f8e1.png)
+
+
 
