@@ -1,9 +1,11 @@
-package net.codejava;
+package net.codejava.service;
 
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import net.codejava.entity.User;
 
 public class CustomUserDetails implements UserDetails {
 	
