@@ -11,8 +11,7 @@ This a Java web application with the essential features: user registration, logi
 ## List all users
 
 1. If user wants to access the user database, user must login first enforced by spring security.
-
-![1681794845560](https://user-images.githubusercontent.com/34713501/232699301-75be399c-7ada-42f3-b599-bfa33d1fb53c.png)
+![1682493874705](https://user-images.githubusercontent.com/34713501/234500752-55b5497e-7756-4ea1-85e4-6b5a6197f6d6.png)
 
 
 2. GET ALL 
