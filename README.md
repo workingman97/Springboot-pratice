@@ -55,16 +55,14 @@ User logins the user name and password store in the MySQL database by the POST o
 User can use authenticate api to retrive a jwt token to get authentication to asscess edit/update/delete
 ![1682493212902](https://user-images.githubusercontent.com/34713501/234498216-ac27d883-74d7-4acb-b675-0c312479235c.png)
 
-
+A example of edit with authorization header with jwt token.
+![1682493249263](https://user-images.githubusercontent.com/34713501/234498427-06d6fe41-9909-4771-854c-c80032cc065b.png)
 
 ## Unit Test
 
 Tests for create user and find user by email
 
 ![1681795532730](https://user-images.githubusercontent.com/34713501/232700357-b5b96153-6f44-4242-93a2-683b202e2b49.png)
-
-A example of edit with authorization header with jwt token.
-![1682493249263](https://user-images.githubusercontent.com/34713501/234498427-06d6fe41-9909-4771-854c-c80032cc065b.png)
 
 
 ## API test by Postman
