@@ -63,20 +63,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/authenticate").permitAll()
-				.antMatchers("/list_users").authenticated()
+				.antMatchers("/list_users").permitAll()
 				.antMatchers("/edit/*").authenticated()
 				.antMatchers("/update/*").authenticated()
 				.antMatchers("/delete/*").authenticated()
 				.anyRequest().permitAll()
-				.and().formLogin()
-				.usernameParameter("email").defaultSuccessUrl("/list_users").and().logout()
-				.logoutSuccessUrl("/").permitAll()
-				.and().exceptionHandling();
-		http.csrf().disable();
+				.and().formLogin().loginPage("/login").permitAll()
+				.usernameParameter("email").defaultSuccessUrl("/list_users", true)
+				.and().logout().logoutSuccessUrl("/").permitAll()
+				.and().exceptionHandling().and().sessionManagement()
+		        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+				
+		http.cors().and().csrf().disable();
 		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 		
-//		.and().exceptionHandling().and().sessionManagement()
-//        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
 
 	}
 

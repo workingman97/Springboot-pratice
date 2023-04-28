@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login</title>
+</head>
+<body>
+	<h1 align="center">Welcome! Please Log in</h1>
+	<form id="login-form" method="post" align="center">
+		<div>
+			<label for="username">Username:</label> <input type="text" id="email"
+				name="email" required>
+		</div>
+		<br/>
+		<div>
+			<label for="password">Password:</label> <input type="password"
+				id="password" name="password" required>
+		</div>
+		<br/>
+		<div>
+			<button type="submit">Login</button>
+		</div>
+	</form>
+
+	<script>
+		//Handle submission of the login form
+		document.getElementById('login-form').addEventListener(
+				'submit',
+				function(event) {
+					event.preventDefault();
+
+					// Send a POST request to the server to authenticate the user
+					var xhr = new XMLHttpRequest();
+					xhr.open('POST', '/authenticate', true);
+					xhr.setRequestHeader('Content-Type',
+							'application/json;charset=UTF-8');
+					console.log("send login request!!");
+					xhr.onload = function() {
+						if (xhr.status === 200) {
+							// Store the JWT token in session storage
+							var response = JSON.parse(xhr.responseText);
+							sessionStorage.setItem('jwtToken', response.token);
+							window.location.href = '/list_users';
+						} else {
+							console.error(xhr.responseText);
+						}
+					};
+					xhr.onerror = function() {
+						console.error(xhr.responseText);
+					};
+					var email = document.getElementById('email').value;
+					var password = document.getElementById('password').value;
+					var data = JSON.stringify({
+						username : email,
+						password : password
+					});
+					//console.log("data", data);
+					xhr.send(data);
+				});
+		
+		
+	</script>
+</body>
+</html>
